@@ -321,4 +321,67 @@ hr {
     .navbar.scrolled {
         background-color: rgba(0, 0, 0, 0.8) !important; 
     }
+
+        /* Sidebar styles */
+    .sidebar-menu {
+        position: fixed;
+        top: 0;
+        left: -260px;
+        width: 240px;
+        height: 100%;
+        background: #222;
+        color: #fff;
+        z-index: 1050;
+        transition: left 0.3s;
+        box-shadow: 2px 0 8px rgba(0,0,0,0.15);
+        padding: 0 1rem;
+    }
+    .sidebar-menu .nav-link {
+        color: #fff;
+        font-size: 1.1rem;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid #333;
+    }
+    .sidebar-menu .nav-link.active,
+    .sidebar-menu .nav-link:hover {
+        color: #0d6efd;
+        background: none;
+    }
+    .sidebar-menu .close-btn {
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 2rem;
+        position: absolute;
+        top: 10px;
+        right: 16px;
+        cursor: pointer;
+    }
+    .sidebar-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0,0,0,0.3);
+        z-index: 1040;
+        display: none;
+    }
+    @media (max-width: 991.98px) {
+        #navbarNav {
+            display: none !important;
+        }
+        .sidebar-menu {
+            display: block;
+        }
+        .navbar-toggler {
+            display: block !important;
+        }
+    }
+    @media (min-width: 992px) {
+        .sidebar-menu,
+        .sidebar-overlay {
+            display: none !important;
+        }
+    }
 }
