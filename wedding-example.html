@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation - Taufik & Wahdini</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Montserrat',sans-serif;overflow-x:hidden;background:#1a1a1a;color:white}
+        .slideshow-container{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-2;overflow:hidden}
+        .slide{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;animation:slideShow 24s infinite;background-size:cover;background-position:center;transform:scale(1.1)}
+        @keyframes kenBurns{0%{transform:scale(1.1)}100%{transform:scale(1.35) translate(-3%,-2%)}}
+        @keyframes slideShow{0%,35%{opacity:1;animation:kenBurns 12s ease-out forwards}40%,75%{opacity:0}80%,100%{opacity:0}}
+        .slide:nth-child(1){background-image:url('https://images.unsplash.com/photo-1519741497674-611481863552?w=1920&q=80')}
+        .slide:nth-child(2){background-image:url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1920&q=80')}
+        .slide:nth-child(3){background-image:url('https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=1920&q=80')}
+        .slide:nth-child(4){background-image:url('https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=1920&q=80')}
+        .overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.5) 50%,rgba(0,0,0,0.8) 100%);z-index:-1}
+        .floating-hearts{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:1;overflow:hidden}
+        .heart{position:absolute;animation:floatUp 12s infinite ease-in;opacity:0;color:#d4af37}
+        @keyframes floatUp{0%{transform:translateY(100vh) rotate(0deg);opacity:0}10%{opacity:0.7}90%{opacity:0.7}100%{transform:translateY(-100px) rotate(360deg);opacity:0}}
+        section{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;padding:80px 20px;position:relative;z-index:2}
+        @keyframes fadeIn{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+        @keyframes fadeInUp{from{opacity:0;transform:translateY(50px)}to{opacity:1;transform:translateY(0)}}
+        @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+        @keyframes sparkle{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.7;transform:scale(1.15)}}
+        @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(10px)}}
+        @keyframes scrollDot{0%,100%{top:10px;opacity:1}50%{top:25px;opacity:0.3}}
+        @keyframes shimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+        @keyframes musicPulse{0%,100%{box-shadow:0 0 0 0 rgba(212,175,55,0.7)}50%{box-shadow:0 0 0 15px rgba(212,175,55,0)}}
+        .hero{animation:fadeIn 2s ease-out;text-align:center;position:relative}
+        .ornament{font-size:4rem;color:#d4af37;margin-bottom:30px;animation:sparkle 2s infinite}
+        .hero h1{font-family:'Great Vibes',cursive;font-size:4rem;color:#fff;text-shadow:2px 2px 30px rgba(0,0,0,0.7);margin-bottom:15px;animation:fadeInUp 1s ease-out 0.3s both}
+        .and{font-family:'Great Vibes',cursive;font-size:3.5rem;color:#d4af37;margin:25px 0;animation:pulse 2s infinite,fadeInUp 1s ease-out 0.6s both}
+        .to{font-family:'Montserrat',sans-serif;font-size:1rem;letter-spacing:10px;text-transform:uppercase;color:rgba(255,255,255,0.8);margin-bottom:35px;animation:fadeInUp 1s ease-out 0.9s both}
+        .couple-names{font-family:'Great Vibes',cursive;font-size:4.5rem;color:#fff;text-shadow:2px 2px 30px rgba(0,0,0,0.7);margin-bottom:50px;animation:fadeInUp 1s ease-out 1.2s both}
+        .date-box{border:3px solid #d4af37;padding:20px 50px;border-radius:100px;background:rgba(212,175,55,0.15);backdrop-filter:blur(10px);animation:fadeInUp 1s ease-out 1.5s both}
+        .date-box .date{font-family:'Montserrat',sans-serif;font-size:1.3rem;letter-spacing:5px;color:#d4af37}
+        .scroll-indicator{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);animation:bounce 2s infinite}
+        .scroll-indicator span{display:block;width:30px;height:50px;border:2px solid #d4af37;border-radius:20px;position:relative}
+        .scroll-indicator span::before{content:'';position:center;top:10px;left:50%;width:6px;height:6px;background:#d4af37;border-radius:50%;transform:translateX(-50%);animation:scrollDot 2s infinite}
+        .save-date{background:rgba(0,0,0,0.6);backdrop-filter:blur(15px);border-radius:30px;padding:70px 50px;max-width:900px;border:1px solid rgba(212,175,55,0.3);margin:0 auto;text-align:center;}
+        .save-date h2{font-family:'Great Vibes',cursive;font-size:3.5rem;color:#d4af37;margin-bottom:50px}
+        .countdown{display:flex;gap:25px;margin-bottom:50px;flex-wrap:wrap;justify-content:center}
+        .countdown-item{background:rgba(212,175,55,0.15);border:2px solid #d4af37;border-radius:20px;padding:25px 30px;min-width:110px;transition:transform 0.3s,box-shadow 0.3s}
+        .countdown-item:hover{transform:translateY(-5px);box-shadow:0 15px 30px rgba(212,175,55,0.3)}
+        .countdown-item .number{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:600;color:#fff;line-height:1}
+        .countdown-item .label{font-size:0.8rem;letter-spacing:3px;text-transform:uppercase;color:#d4af37;margin-top:8px}
+        .event-details h2{font-family:'Great Vibes',cursive;font-size:3.5rem;color:#d4af37;margin-bottom:50px}
+        .events{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:35px;max-width:1000px;width:100%}
+        .event{text-align:center;padding:40px 30px;background:rgba(0,0,0,0.5);backdrop-filter:blur(15px);border-radius:25px;border:1px solid rgba(212,175,55,0.2);transition:transform 0.4s,box-shadow 0.4s}
+        .event:hover{transform:translateY(-15px);box-shadow:0 25px 50px rgba(212,175,55,0.25);border-color:rgba(212,175,55,0.5)}
+        .event-icon{font-size:4rem;margin-bottom:25px}
+        .event h3{font-family:'Cormorant Garamond',serif;font-size:2rem;color:#fff;margin-bottom:20px}
+        .event .event-info{color:rgba(255,255,255,0.85);line-height:2.2;font-size:0.95rem}
+        .event .event-info strong{color:#d4af37;font-weight:500}
+        .gallery h2{font-family:'Great Vibes',cursive;font-size:3.5rem;color:#d4af37;margin-bottom:50px}
+        .gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;max-width:1200px;width:100%}
+        .gallery-item{height:320px;border-radius:20px;overflow:hidden;position:relative;cursor:pointer;transition:transform 0.4s,box-shadow 0.4s}
+        .gallery-item:hover{transform:scale(1.03);box-shadow:0 20px 40px rgba(0,0,0,0.5)}
+        .gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s}
+        .gallery-item:hover img{transform:scale(1.15)}
+        .gallery-item::after{content:'';position:absolute;bottom:0;left:0;right:0;height:50%;background:linear-gradient(transparent,rgba(0,0,0,0.6));pointer-events:none}
+        .story-card{background:rgba(255,255,255,0.08);backdrop-filter:blur(15px);border-radius:30px;padding:70px;max-width:850px;border:1px solid rgba(212,175,55,0.2)}
+        .story-card h2{font-family:'Great Vibes',cursive;font-size:3.5rem;color:#d4af37;margin-bottom:40px}
+        .story-card p{font-family:'Cormorant Garamond',serif;font-size:1.35rem;line-height:2.2;color:rgba(255,255,255,0.9);font-style:italic;margin-bottom:25px}
+        .story-card .signature{font-family:'Great Vibes',cursive;font-size:2.2rem;color:#d4af37;margin-top:40px}
+        .rsvp-card{background:rgba(212,175,55,0.12);backdrop-filter:blur(20px);border:2px solid #d4af37;border-radius:30px;padding:60px;max-width:600px;width:100%}
+        .rsvp-card h2{font-family:'Great Vibes',cursive;font-size:3.5rem;color:#d4af37;margin-bottom:35px}
+        .form-group{margin-bottom:25px;text-align:left}
+        .form-group label{display:block;font-size:0.85rem;letter-spacing:2px;text-transform:uppercase;color:#d4af37;margin-bottom:10px}
+        .form-group input,.form-group select,.form-group textarea{width:100%;padding:16px 20px;border:1px solid rgba(212,175,55,0.4);border-radius:12px;background:rgba(0,0,0,0.5);color:white;font-family:'Montserrat',sans-serif;font-size:1rem;transition:all 0.3s}
+        .form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:#d4af37;box-shadow:0 0 25px rgba(212,175,55,0.35);background:rgba(0,0,0,0.7)}
+        .form-group input::placeholder{color:rgba(255,255,255,0.4)}
+        .form-group select option{background:#1a1a1a;color:white}
+        .form-group textarea{resize:vertical;min-height:100px}
+        .btn-submit{background:linear-gradient(135deg,#d4af37 0%,#f4e4bc 50%,#d4af37 100%);background-size:200% 200%;color:#1a1a1a;border:none;padding:18px 55px;font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;border-radius:50px;cursor:pointer;transition:all 0.4s;animation:shimmer 3s infinite}
+        .btn-submit:hover{transform:translateY(-3px);box-shadow:0 15px 30px rgba(212,175,55,0.5)}
+        footer{background:rgba(0,0,0,0.9);padding:80px 20px;text-align:center;border-top:1px solid rgba(212,175,55,0.3);position:relative;z-index:2}
+        footer h3{font-family:'Great Vibes',cursive;font-size:3rem;color:#d4af37;margin-bottom:25px}
+        footer p{color:rgba(255,255,255,0.6);font-size:1rem;margin-bottom:10px}
+        footer .hashtag{font-family:'Great Vibes',cursive;font-size:2rem;color:#d4af37;margin-top:30px}
+        .music-toggle{position:fixed;bottom:30px;right:30px;width:60px;height:60px;border-radius:50%;background:rgba(212,175,55,0.9);border:none;cursor:pointer;z-index:1000;display:flex;align-items:center;justify-content:center;font-size:1.5rem;transition:all 0.3s;box-shadow:0 5px 20px rgba(0,0,0,0.3)}
+        .music-toggle:hover{transform:scale(1.1);background:#d4af37}
+        .music-toggle.playing{animation:musicPulse 1s infinite}
+        @media(max-width:768px){.hero h1{font-size:2.5rem}.and{font-size:2.5rem}.couple-names{font-size:3rem}.save-date{padding:40px 20px}.save-date h2{font-size:2.5rem}.countdown-item{padding:15px 20px;min-width:80px}.countdown-item .number{font-size:2.5rem}.event-details h2{font-size:2.5rem}.story-card{padding:40px 20px}.rsvp-card{padding:40px 20px}.gallery-grid{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}}
+    </style>
+</head>
+<body>
+    <div class="slideshow-container">
+        <div class="slide active"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+    </div>
+    <div class="overlay"></div>
+    <div class="floating-hearts" id="hearts"></div>
+
+    <section class="hero">
+        <div class="ornament">✨💍✨</div>
+        <h1>Wedding Invitation</h1>
+        <div class="to">Together with their families</div>
+        <div class="and">&</div>
+        <div class="couple-names">Taufik & Wahdini</div>
+        <div class="date-box"><div class="date">AUGUST 15, 2028</div></div>
+        <div class="scroll-indicator"><span></span></div>
+    </section>
+
+    <section class="save-date">
+        <h2>Save the Date</h2>
+        <div class="countdown" id="countdown">
+            <div class="countdown-item"><div class="number" id="days">00</div><div class="label">Days</div></div>
+            <div class="countdown-item"><div class="number" id="hours">00</div><div class="label">Hours</div></div>
+            <div class="countdown-item"><div class="number" id="minutes">00</div><div class="label">Minutes</div></div>
+            <div class="countdown-item"><div class="number" id="seconds">00</div><div class="label">Seconds</div></div>
+        </div>
+        <p style="color:rgba(255,255,255,0.8);font-size:1.1rem;line-height:1.8;margin-top:30px">Kami dengan kebahagiaan mengundang Anda untuk hadir di acara pernikahan kami.</p>
+    </section>
+
+    <section class="event-details">
+        <h2>Wedding Events</h2>
+        <div class="events">
+            <div class="event">
+                <div class="event-icon">💒</div>
+                <h3>Akad Nikah</h3>
+                <div class="event-info">
+                    <strong>Minggu, 15 Agustus 2028</strong><br>
+                    Pukul 08:00 - 10:00 WIB<br>
+                    Masjid Al-Hidayah<br>
+                    Jl. cinta No. 123, Jakarta
+                </div>
+            </div>
+            <div class="event">
+                <div class="event-icon">🎉</div>
+                <h3>Resepsi</h3>
+                <div class="event-info">
+                    <strong>Minggu, 15 Agustus 2028</strong><br>
+                    Pukul 18:00 - 22:00 WIB<br>
+                    Garden Ballroom Hotel<br>
+                    Jl. asmara No. 456, Jakarta
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery">
+        <h2>Our Gallery</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80" alt="Wedding Photo 1"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600&q=80" alt="Wedding Photo 2"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=600&q=80" alt="Wedding Photo 3"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=600&q=80" alt="Wedding Photo 4"></div>
+        </div>
+    </section>
+
+    <section class="story">
+        <div class="story-card">
+            <h2>Our Love Story</h2>
+            <p>Di sebuah pagi yang cerah di tahun 2021, takdir mempertemukan kami. Senyum pertama yang saling bertukar membawa kesan yang takTerhapus. Dari pertemanan kecil berkembang menjadi cinta yang begitu indah.</p>
+            <p>Setiap momen bersama kalian adalah keajaiban. Terima kasih sudah menjadi bagian dari perjalanan cinta kami.</p>
+            <div class="signature">With Love, Taufik & Wahdini</div>
+        </div>
+    </section>
+
+    <section class="rsvp">
+        <div class="rsvp-card">
+            <h2>RSVP</h2>
+            <form class="rsvp-form" onsubmit="handleRSVP(event)">
+                <div class="form-group">
+                    <label for="name">Nama Lengkap</label>
+                    <input type="text" id="name" name="name" placeholder="Masukkan nama Anda" required>
+                </div>
+                <div class="form-group">
+                    <label for="attendance">Konfirmasi Kehadiran</label>
+                    <select id="attendance" name="attendance" required>
+                        <option value="">Pilih konfirmasi</option>
+                        <option value="hadir">Hadir</option>
+                        <option value="tidak-hadir">Tidak Hadir</option>
+                        <option value="ragu">Masih Ragu</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="guests">Jumlah Tamu</label>
+                    <select id="guests" name="guests">
+                        <option value="1">1 Orang</option>
+                        <option value="2">2 Orang</option>
+                        <option value="3">3 Orang</option>
+                        <option value="4">4 Orang</option>
+                        <option value="5">5+ Orang</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Ucapan & Doa</label>
+                    <textarea id="message" name="message" placeholder="Tulis ucapan dan doa untuk kami..."></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Kirim RSVP</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <h3>Taufik & Wahdini</h3>
+        <p>Terima kasih atas doa dan restu Anda</p>
+        <p>Kami tidak bisa mengucapkan hal ini tanpa emotion</p>
+        <div class="hashtag">#TaufikWahdini2028</div>
+    </footer>
+
+    <button class="music-toggle" id="musicToggle" onclick="toggleMusic()">🎵</button>
+    <audio id="bgMusic" loop>
+        <source src="music/paulyudin-wedding-485932.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            const weddingDate = new Date('August 15, 2028 08:00:00').getTime();
+            const now = new Date().getTime();
+            const gap = weddingDate - now;
+            
+            const second = 1000;
+            const minute = second * 60;
+            const hour = minute * 60;
+            const day = hour * 24;
+            
+            const d = Math.floor(gap / day);
+            const h = Math.floor((gap % day) / hour);
+            const m = Math.floor((gap % hour) / minute);
+            const s = Math.floor((gap % minute) / second);
+            
+            document.getElementById('days').innerText = d > 0 ? d : 0;
+            document.getElementById('hours').innerText = h > 0 ? h : 0;
+            document.getElementById('minutes').innerText = m > 0 ? m : 0;
+            document.getElementById('seconds').innerText = s > 0 ? s : 0;
+        }
+        setInterval(updateCountdown, 1000);
+        
+        // Floating Hearts
+        function createHeart() {
+            const hearts = document.getElementById('hearts');
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = ['❤️', '💕', '💖', '💗', '💝'][Math.floor(Math.random() * 5)];
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 5 + 8) + 's';
+            heart.style.fontSize = (Math.random() * 15 + 15) + 'px';
+            hearts.appendChild(heart);
+            setTimeout(() => heart.remove(), 12000);
+        }
+        setInterval(createHeart, 2000);
+        
+        // Music Toggle
+        function toggleMusic() {
+            const music = document.getElementById('bgMusic');
+            const btn = document.getElementById('musicToggle');
+            if (music.paused) {
+                music.play();
+                btn.classList.add('playing');
+                btn.innerHTML = '🔊';
+            } else {
+                music.pause();
+                btn.classList.remove('playing');
+                btn.innerHTML = '🎵';
+            }
+        }
+        
+        // RSVP Handler
+        function handleRSVP(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const attendance = document.getElementById('attendance').value;
+            alert('Terima kasih ' + name + '!\nKonfirmasi kehadiran: ' + attendance + '\n\nKami tunggu kehadiran Anda!');
+            e.target.reset();
+        }
+        
+        // Slide Animation
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        setInterval(nextSlide, 6000);
+        
+        // Initialize
+        updateCountdown();
+    </script>
+</body>
+</html>
